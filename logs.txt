@@ -1,0 +1,273 @@
+#0 building with "default" instance using docker driver
+
+#1 [health_chatbot-api internal] load build definition from Dockerfile
+#1 transferring dockerfile: 513B done
+#1 DONE 0.0s
+
+#2 [health_chatbot-api] resolve image config for docker-image://docker.io/docker/dockerfile:experimental
+#2 DONE 1.7s
+
+#3 [health_chatbot-api] docker-image://docker.io/docker/dockerfile:experimental@sha256:600e5c62eedff338b3f7a0850beb7c05866e0ef27b2d2e8c02aa468e78496ff5
+#3 CACHED
+
+#1 [health_chatbot-api internal] load build definition from Dockerfile
+#1 transferring dockerfile: 513B done
+#1 DONE 0.0s
+
+#4 [health_chatbot-api internal] load build definition from Dockerfile
+#4 DONE 0.0s
+
+#5 [health_chatbot-api internal] load .dockerignore
+#5 transferring context: 56B 0.0s done
+#5 DONE 0.0s
+
+#6 [health_chatbot-api internal] load metadata for docker.io/library/python:3.11
+#6 DONE 1.6s
+
+#7 [health_chatbot-api internal] load build context
+#7 transferring context: 27.45kB 0.0s done
+#7 DONE 0.0s
+
+#8 [health_chatbot-api 1/5] FROM docker.io/library/python:3.11@sha256:a87accdfc2fd5cca7e2ffeabb5c32749b932bc3d1e5a25c3b6adc0c26af7fce8
+#8 resolve docker.io/library/python:3.11@sha256:a87accdfc2fd5cca7e2ffeabb5c32749b932bc3d1e5a25c3b6adc0c26af7fce8 0.0s done
+#8 DONE 0.0s
+
+#9 [health_chatbot-api 4/5] RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
+#9 CACHED
+
+#10 [health_chatbot-api 2/5] WORKDIR /code/app
+#10 CACHED
+
+#11 [health_chatbot-api 3/5] COPY ./requirements.txt /code/requirements.txt
+#11 CACHED
+
+#12 [health_chatbot-api 5/5] COPY ./app /code/app
+#12 CACHED
+
+#13 [health_chatbot-api] exporting to image
+#13 exporting layers done
+#13 writing image sha256:905ad001f3b92921a07d40f99cd1c9245ef8cdd618ed82af1a577ba71e91a32c done
+#13 naming to docker.io/library/health_chatbot-api:latest done
+#13 DONE 0.0s
+
+#14 [health_chatbot-frontend internal] load build definition from Dockerfile
+#14 transferring dockerfile: 1.33kB done
+#14 DONE 0.0s
+
+#15 [health_chatbot-frontend internal] load metadata for docker.io/library/node:19-alpine3.16
+#15 DONE 1.6s
+
+#16 [health_chatbot-frontend internal] load .dockerignore
+#16 transferring context: 99B done
+#16 DONE 0.0s
+
+#17 [health_chatbot-frontend stage-0  1/10] FROM docker.io/library/node:19-alpine3.16@sha256:d73a7d0f2ec5d9c0f4b8aeb7768151e0a3283edba46f16adeec883ff703230cf
+#17 DONE 0.0s
+
+#18 [health_chatbot-frontend internal] load build context
+#18 transferring context: 12.86MB 0.3s done
+#18 DONE 0.3s
+
+#19 [health_chatbot-frontend stage-0  2/10] RUN --mount=type=cache,target=/var/cache/apk     apk update     && apk --progress add tzdata rsync su-exec
+#19 CACHED
+
+#20 [health_chatbot-frontend stage-0  5/10] WORKDIR /install
+#20 CACHED
+
+#21 [health_chatbot-frontend stage-0  4/10] RUN chmod +x /start.sh
+#21 CACHED
+
+#22 [health_chatbot-frontend stage-0  6/10] COPY package.json /install
+#22 CACHED
+
+#23 [health_chatbot-frontend stage-0  7/10] COPY package-lock.json /install
+#23 CACHED
+
+#24 [health_chatbot-frontend stage-0  8/10] RUN --mount=type=cache,target=/root/.npm npm ci
+#24 CACHED
+
+#25 [health_chatbot-frontend stage-0  9/10] WORKDIR /app
+#25 CACHED
+
+#26 [health_chatbot-frontend stage-0  3/10] COPY ./docker-start.sh /start.sh
+#26 CACHED
+
+#27 [health_chatbot-frontend stage-0 10/10] COPY . /app
+#27 CACHED
+
+#28 [health_chatbot-frontend] exporting to image
+#28 exporting layers done
+#28 writing image sha256:21636e6da413f0ba743d242584172a63ad4fa152f6e2c87170fd309fd9009fe9 done
+#28 naming to docker.io/library/health_chatbot-frontend:latest done
+#28 DONE 0.0s
+
+#29 [health_chatbot-reverse-proxy internal] load build definition from Dockerfile
+#29 transferring dockerfile: 709B done
+#29 DONE 0.0s
+
+#2 [health_chatbot-reverse-proxy] resolve image config for docker-image://docker.io/docker/dockerfile:experimental
+#2 DONE 2.0s
+
+#29 [health_chatbot-reverse-proxy internal] load build definition from Dockerfile
+#29 transferring dockerfile: 709B done
+#29 DONE 0.0s
+
+#3 [health_chatbot-reverse-proxy] docker-image://docker.io/docker/dockerfile:experimental@sha256:600e5c62eedff338b3f7a0850beb7c05866e0ef27b2d2e8c02aa468e78496ff5
+#3 CACHED
+
+#30 [health_chatbot-reverse-proxy internal] load build definition from Dockerfile
+#30 DONE 0.0s
+
+#31 [health_chatbot-reverse-proxy internal] load .dockerignore
+#31 transferring context: 2B done
+#31 DONE 0.0s
+
+#32 [health_chatbot-reverse-proxy internal] load metadata for docker.io/library/nginx:1.27.0-alpine-slim
+#32 DONE 1.7s
+
+#33 [health_chatbot-reverse-proxy stage-0 1/4] FROM docker.io/library/nginx:1.27.0-alpine-slim@sha256:66943ac4a1ca7f111097d3c656939dfe8ae2bc8314bb45d6d80419c5fb25e304
+#33 DONE 0.0s
+
+#34 [health_chatbot-reverse-proxy internal] load build context
+#34 transferring context: 4.10kB 0.0s done
+#34 DONE 0.0s
+
+#35 [health_chatbot-reverse-proxy stage-0 2/4] RUN --mount=type=cache,target=/var/cache/apk     apk update     && apk --progress add tzdata
+#35 CACHED
+
+#36 [health_chatbot-reverse-proxy stage-0 3/4] COPY nginx/nginx.conf.template /etc/nginx/nginx.conf.template
+#36 DONE 0.1s
+
+#37 [health_chatbot-reverse-proxy stage-0 4/4] COPY docker-entrypoint.sh /
+#37 DONE 0.0s
+
+#38 [health_chatbot-reverse-proxy] exporting to image
+#38 exporting layers 0.0s done
+#38 writing image sha256:de7ca47356bcb8836f32e3560746778ce674dc0e63392bddae930f765ae862f8
+#38 writing image sha256:de7ca47356bcb8836f32e3560746778ce674dc0e63392bddae930f765ae862f8 done
+#38 naming to docker.io/library/health_chatbot-reverse-proxy:latest done
+#38 DONE 0.1s
+Attaching to certbot-1, health_chatbot-api-1, health_chatbot-frontend-1, health_chatbot-pgadmin-1, health_chatbot-postgres-1, health_chatbot-reverse-proxy-1
+health_chatbot-postgres-1       | The files belonging to this database system will be owned by user "postgres".
+health_chatbot-postgres-1       | This user must also own the server process.
+health_chatbot-postgres-1       | 
+health_chatbot-postgres-1       | The database cluster will be initialized with locale "en_US.utf8".
+health_chatbot-postgres-1       | The default database encoding has accordingly been set to "UTF8".
+health_chatbot-postgres-1       | The default text search configuration will be set to "english".
+health_chatbot-postgres-1       | 
+health_chatbot-postgres-1       | Data page checksums are disabled.
+health_chatbot-postgres-1       | 
+health_chatbot-postgres-1       | fixing permissions on existing directory /var/lib/postgresql/data ... ok
+health_chatbot-postgres-1       | creating subdirectories ... ok
+health_chatbot-postgres-1       | selecting dynamic shared memory implementation ... posix
+health_chatbot-postgres-1       | selecting default max_connections ... 100
+health_chatbot-postgres-1       | selecting default shared_buffers ... 128MB
+health_chatbot-postgres-1       | selecting default time zone ... Australia/Adelaide
+health_chatbot-postgres-1       | creating configuration files ... ok
+health_chatbot-postgres-1       | running bootstrap script ... ok
+health_chatbot-frontend-1       | + '[' -d /install/node_modules ]
+health_chatbot-frontend-1       | + echo coping...
+health_chatbot-frontend-1       | coping...
+health_chatbot-frontend-1       | + rsync --owner --group '--usermap=*:1000' '--groupmap=*:1000' -Wrlpt -h -H --no-compress --inplace /install/node_modules /app/
+certbot-1                       | 
+certbot-1                       | - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+certbot-1                       | Processing /etc/letsencrypt/renewal/my.mechat.com.au.conf
+certbot-1                       | - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+certbot-1                       | Certificate not yet due for renewal
+certbot-1                       | 
+certbot-1                       | - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+certbot-1                       | The following certificates are not due for renewal yet:
+certbot-1                       |   /etc/letsencrypt/live/my.mechat.com.au/fullchain.pem expires on 2024-10-01 (skipped)
+certbot-1                       | No renewals were attempted.
+certbot-1                       | - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+health_chatbot-postgres-1       | performing post-bootstrap initialization ... ok
+health_chatbot-postgres-1       | syncing data to disk ... ok
+health_chatbot-postgres-1       | 
+health_chatbot-postgres-1       | 
+health_chatbot-postgres-1       | Success. You can now start the database server using:
+health_chatbot-postgres-1       | 
+health_chatbot-postgres-1       |     pg_ctl -D /var/lib/postgresql/data -l logfile start
+health_chatbot-postgres-1       | 
+health_chatbot-postgres-1       | waiting for server to start....2024-07-04 17:44:47.184 ACST [36] LOG:  starting PostgreSQL 14.5 on x86_64-pc-linux-musl, compiled by gcc (Alpine 11.2.1_git20220219) 11.2.1 20220219, 64-bit
+health_chatbot-postgres-1       | 2024-07-04 17:44:47.187 ACST [36] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+health_chatbot-postgres-1       | 2024-07-04 17:44:47.194 ACST [37] LOG:  database system was shut down at 2024-07-04 17:44:46 ACST
+health_chatbot-postgres-1       | 2024-07-04 17:44:47.206 ACST [36] LOG:  database system is ready to accept connections
+health_chatbot-postgres-1       |  done
+health_chatbot-postgres-1       | server started
+health_chatbot-postgres-1       | CREATE DATABASE
+health_chatbot-postgres-1       | 
+health_chatbot-postgres-1       | 
+health_chatbot-postgres-1       | /usr/local/bin/docker-entrypoint.sh: ignoring /docker-entrypoint-initdb.d/*
+health_chatbot-postgres-1       | 
+health_chatbot-postgres-1       | 2024-07-04 17:44:47.699 ACST [36] LOG:  received fast shutdown request
+health_chatbot-postgres-1       | waiting for server to shut down....2024-07-04 17:44:47.701 ACST [36] LOG:  aborting any active transactions
+health_chatbot-postgres-1       | 2024-07-04 17:44:47.710 ACST [36] LOG:  background worker "logical replication launcher" (PID 43) exited with exit code 1
+health_chatbot-postgres-1       | 2024-07-04 17:44:47.721 ACST [38] LOG:  shutting down
+health_chatbot-postgres-1       | 2024-07-04 17:44:47.745 ACST [36] LOG:  database system is shut down
+health_chatbot-postgres-1       |  done
+health_chatbot-postgres-1       | server stopped
+health_chatbot-postgres-1       | 
+health_chatbot-postgres-1       | PostgreSQL init process complete; ready for start up.
+health_chatbot-postgres-1       | 
+health_chatbot-frontend-1       | + '[[' development '=' production ]]
+health_chatbot-frontend-1       | + echo 'Starting development node js server...'
+health_chatbot-frontend-1       | Starting development node js server...
+health_chatbot-frontend-1       | + su-exec 1000:1000 npm start
+health_chatbot-frontend-1       | 
+health_chatbot-frontend-1       | > mental-health-bot@0.1.0 start
+health_chatbot-frontend-1       | > react-scripts start
+health_chatbot-frontend-1       | 
+health_chatbot-frontend-1       | (node:29) [DEP_WEBPACK_DEV_SERVER_ON_AFTER_SETUP_MIDDLEWARE] DeprecationWarning: 'onAfterSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+health_chatbot-frontend-1       | (Use `node --trace-deprecation ...` to show where the warning was created)
+health_chatbot-frontend-1       | (node:29) [DEP_WEBPACK_DEV_SERVER_ON_BEFORE_SETUP_MIDDLEWARE] DeprecationWarning: 'onBeforeSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+health_chatbot-frontend-1       | [2J[3J[H[36mStarting the development server...[39m
+health_chatbot-frontend-1       | [36m[39m
+health_chatbot-frontend-1       | [2J[3J[H[32mCompiled successfully![39m
+health_chatbot-frontend-1       | 
+health_chatbot-frontend-1       | You can now view [1mmental-health-bot[22m in the browser.
+health_chatbot-frontend-1       | 
+health_chatbot-frontend-1       |   [1mLocal:[22m            http://localhost:[1m3000[22m
+health_chatbot-frontend-1       |   [1mOn Your Network:[22m  http://172.18.0.6:[1m3000[22m
+health_chatbot-frontend-1       | 
+health_chatbot-frontend-1       | Note that the development build is not optimized.
+health_chatbot-frontend-1       | To create a production build, use [36mnpm run build[39m.
+health_chatbot-frontend-1       | 
+health_chatbot-frontend-1       | webpack compiled [1m[32msuccessfully[39m[22m
+health_chatbot-pgadmin-1        | NOTE: Configuring authentication for SERVER mode.
+health_chatbot-pgadmin-1        | 
+health_chatbot-reverse-proxy-1  | 2024/07/04 17:45:28 [error] 8#8: *1 SSL_do_handshake() failed (SSL: error:0A00010B:SSL routines::wrong version number) while SSL handshaking to upstream, client: 47.242.224.70, server: my.mechat.com.au, request: "GET / HTTP/1.1", upstream: "https://172.18.0.6:3000/", host: "www.my.mechat.com.au"
+health_chatbot-reverse-proxy-1  | 47.242.224.70 - - [04/Jul/2024:17:45:28 +0930] "GET / HTTP/1.1" 502 150 "-" "Mozilla/5.0 (Windows; U; Windows NT 5.1; pl; rv:1.9.2.3) Gecko/20100401 Lightningquail/3.6.3"
+health_chatbot-reverse-proxy-1  | 2024/07/04 17:46:03 [error] 8#8: *3 SSL_do_handshake() failed (SSL: error:0A00010B:SSL routines::wrong version number) while SSL handshaking to upstream, client: 83.97.73.245, server: my.mechat.com.au, request: "GET /_ignition/execute-solution HTTP/1.1", upstream: "https://172.18.0.6:3000/_ignition/execute-solution", host: "170.64.218.187:443"
+health_chatbot-reverse-proxy-1  | 83.97.73.245 - - [04/Jul/2024:17:46:03 +0930] "GET /_ignition/execute-solution HTTP/1.1" 502 552 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36"
+health_chatbot-reverse-proxy-1  | 2024/07/04 17:47:03 [error] 8#8: *5 SSL_do_handshake() failed (SSL: error:0A00010B:SSL routines::wrong version number) while SSL handshaking to upstream, client: 103.157.237.117, server: my.mechat.com.au, request: "GET /api/docs HTTP/1.1", upstream: "https://172.18.0.3:8000//docs", host: "my.mechat.com.au"
+health_chatbot-reverse-proxy-1  | 103.157.237.117 - - [04/Jul/2024:17:47:03 +0930] "GET /api/docs HTTP/1.1" 502 552 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0"
+health_chatbot-reverse-proxy-1  | 2024/07/04 17:47:03 [error] 8#8: *5 SSL_do_handshake() failed (SSL: error:0A00010B:SSL routines::wrong version number) while SSL handshaking to upstream, client: 103.157.237.117, server: my.mechat.com.au, request: "GET /favicon.ico HTTP/1.1", upstream: "https://172.18.0.6:3000/favicon.ico", host: "my.mechat.com.au", referrer: "https://my.mechat.com.au/api/docs"
+health_chatbot-reverse-proxy-1  | 103.157.237.117 - - [04/Jul/2024:17:47:03 +0930] "GET /favicon.ico HTTP/1.1" 502 552 "https://my.mechat.com.au/api/docs" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0"
+health_chatbot-reverse-proxy-1  | 2024/07/04 17:47:10 [error] 8#8: *5 SSL_do_handshake() failed (SSL: error:0A00010B:SSL routines::wrong version number) while SSL handshaking to upstream, client: 103.157.237.117, server: my.mechat.com.au, request: "GET / HTTP/1.1", upstream: "https://172.18.0.6:3000/", host: "my.mechat.com.au"
+health_chatbot-reverse-proxy-1  | 103.157.237.117 - - [04/Jul/2024:17:47:10 +0930] "GET / HTTP/1.1" 502 552 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0"
+health_chatbot-reverse-proxy-1  | 2024/07/04 17:47:10 [error] 8#8: *5 SSL_do_handshake() failed (SSL: error:0A00010B:SSL routines::wrong version number) while SSL handshaking to upstream, client: 103.157.237.117, server: my.mechat.com.au, request: "GET /favicon.ico HTTP/1.1", upstream: "https://172.18.0.6:3000/favicon.ico", host: "my.mechat.com.au", referrer: "https://my.mechat.com.au/"
+health_chatbot-reverse-proxy-1  | 103.157.237.117 - - [04/Jul/2024:17:47:10 +0930] "GET /favicon.ico HTTP/1.1" 502 552 "https://my.mechat.com.au/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0"
+health_chatbot-reverse-proxy-1  | 2024/07/04 17:49:32 [error] 8#8: *10 SSL_do_handshake() failed (SSL: error:0A00010B:SSL routines::wrong version number) while SSL handshaking to upstream, client: 103.157.237.117, server: my.mechat.com.au, request: "GET / HTTP/1.1", upstream: "https://172.18.0.6:3000/", host: "my.mechat.com.au"
+health_chatbot-reverse-proxy-1  | 103.157.237.117 - - [04/Jul/2024:17:49:32 +0930] "GET / HTTP/1.1" 502 552 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0"
+health_chatbot-reverse-proxy-1  | 2024/07/04 17:49:33 [error] 8#8: *10 SSL_do_handshake() failed (SSL: error:0A00010B:SSL routines::wrong version number) while SSL handshaking to upstream, client: 103.157.237.117, server: my.mechat.com.au, request: "GET /favicon.ico HTTP/1.1", upstream: "https://172.18.0.6:3000/favicon.ico", host: "my.mechat.com.au", referrer: "https://my.mechat.com.au/"
+health_chatbot-reverse-proxy-1  | 103.157.237.117 - - [04/Jul/2024:17:49:33 +0930] "GET /favicon.ico HTTP/1.1" 502 552 "https://my.mechat.com.au/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0"
+health_chatbot-reverse-proxy-1  | 2024/07/04 17:49:36 [error] 8#8: *10 SSL_do_handshake() failed (SSL: error:0A00010B:SSL routines::wrong version number) while SSL handshaking to upstream, client: 103.157.237.117, server: my.mechat.com.au, request: "GET / HTTP/1.1", upstream: "https://172.18.0.6:3000/", host: "my.mechat.com.au"
+health_chatbot-reverse-proxy-1  | 103.157.237.117 - - [04/Jul/2024:17:49:36 +0930] "GET / HTTP/1.1" 502 552 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0"
+health_chatbot-reverse-proxy-1  | 2024/07/04 17:49:37 [error] 8#8: *10 SSL_do_handshake() failed (SSL: error:0A00010B:SSL routines::wrong version number) while SSL handshaking to upstream, client: 103.157.237.117, server: my.mechat.com.au, request: "GET /favicon.ico HTTP/1.1", upstream: "https://172.18.0.6:3000/favicon.ico", host: "my.mechat.com.au", referrer: "https://my.mechat.com.au/"
+health_chatbot-reverse-proxy-1  | 103.157.237.117 - - [04/Jul/2024:17:49:37 +0930] "GET /favicon.ico HTTP/1.1" 502 552 "https://my.mechat.com.au/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0"
+health_chatbot-reverse-proxy-1  | 2024/07/04 17:49:55 [error] 8#8: *15 SSL_do_handshake() failed (SSL: error:0A00010B:SSL routines::wrong version number) while SSL handshaking to upstream, client: 103.157.237.117, server: my.mechat.com.au, request: "GET / HTTP/1.1", upstream: "https://172.18.0.6:3000/", host: "my.mechat.com.au"
+health_chatbot-reverse-proxy-1  | 103.157.237.117 - - [04/Jul/2024:17:49:55 +0930] "GET / HTTP/1.1" 502 552 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0"
+health_chatbot-reverse-proxy-1  | 2024/07/04 17:49:55 [error] 8#8: *15 SSL_do_handshake() failed (SSL: error:0A00010B:SSL routines::wrong version number) while SSL handshaking to upstream, client: 103.157.237.117, server: my.mechat.com.au, request: "GET /favicon.ico HTTP/1.1", upstream: "https://172.18.0.6:3000/favicon.ico", host: "my.mechat.com.au", referrer: "https://my.mechat.com.au/"
+health_chatbot-reverse-proxy-1  | 103.157.237.117 - - [04/Jul/2024:17:49:55 +0930] "GET /favicon.ico HTTP/1.1" 502 552 "https://my.mechat.com.au/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0"
+health_chatbot-reverse-proxy-1  | 2024/07/04 17:50:04 [error] 8#8: *15 SSL_do_handshake() failed (SSL: error:0A00010B:SSL routines::wrong version number) while SSL handshaking to upstream, client: 103.157.237.117, server: my.mechat.com.au, request: "GET /docs HTTP/1.1", upstream: "https://172.18.0.6:3000/docs", host: "my.mechat.com.au"
+health_chatbot-reverse-proxy-1  | 103.157.237.117 - - [04/Jul/2024:17:50:04 +0930] "GET /docs HTTP/1.1" 502 552 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0"
+health_chatbot-reverse-proxy-1  | 2024/07/04 17:50:05 [error] 8#8: *15 SSL_do_handshake() failed (SSL: error:0A00010B:SSL routines::wrong version number) while SSL handshaking to upstream, client: 103.157.237.117, server: my.mechat.com.au, request: "GET /favicon.ico HTTP/1.1", upstream: "https://172.18.0.6:3000/favicon.ico", host: "my.mechat.com.au", referrer: "https://my.mechat.com.au/docs"
+health_chatbot-reverse-proxy-1  | 103.157.237.117 - - [04/Jul/2024:17:50:05 +0930] "GET /favicon.ico HTTP/1.1" 502 552 "https://my.mechat.com.au/docs" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0"
+health_chatbot-api-1            | INFO:     104.28.208.87:21673 - "GET /api/ HTTP/1.1" 200 OK
+health_chatbot-api-1            | INFO:     104.28.208.87:21673 - "GET /api/docs HTTP/1.1" 200 OK
+health_chatbot-api-1            | INFO:     104.28.208.87:22010 - "GET /api/api/openapi.json HTTP/1.1" 404 Not Found
+health_chatbot-api-1            | INFO:     104.28.208.87:21768 - "GET /api/api/docs HTTP/1.1" 404 Not Found
+health_chatbot-api-1            | INFO:     104.28.208.87:21838 - "GET /api/ HTTP/1.1" 200 OK
+health_chatbot-api-1            | INFO:     104.28.208.87:21838 - "GET /api/dos HTTP/1.1" 404 Not Found
+health_chatbot-api-1            | INFO:     104.28.208.87:21838 - "GET /api/docs HTTP/1.1" 200 OK
+health_chatbot-api-1            | INFO:     104.28.208.87:21838 - "GET /api/api/openapi.json HTTP/1.1" 404 Not Found
